@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404,redirect
-from .models import Aluno
+from .models import Aluno,Curso,Cidade
 from .forms import AlunoForm
 
 def aluno_editar(request,id=id):
@@ -44,6 +44,14 @@ def aluno_listar(request):
 
 
 def index(request):
-    return render(request, "aluno/index.html")
+    total_alunos = Aluno.objects.count()
+    total_cidades = Cidade.objects.count()
+    total_curso = Curso.objects.count()
+    context = {
+        'total_alunos' : total_alunos,
+        'total_cidades' : total_cidades,
+        'total_cursos' : total_curso
+    }
+    return render(request, "aluno/index.html",context)
 
 
