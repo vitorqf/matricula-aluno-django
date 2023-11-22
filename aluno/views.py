@@ -36,7 +36,7 @@ class AlunoListar(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = self.form
+        context['form'] = AlunoFilterForm(self.request.GET or None)
         return context
 
     def get_queryset(self):
