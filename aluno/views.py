@@ -15,7 +15,7 @@ class AlunoEditar(UpdateView):
     model = Aluno
     form_class = AlunoForm
     template_name = 'aluno/form.html'
-    pk_url_kwarg = 'id'  # se o nome da chave primária na URL é 'id'
+    pk_url_kwarg = 'id' # Nome da variável na URL
     
     def get_success_url(self):
         return reverse_lazy('aluno_listar')
