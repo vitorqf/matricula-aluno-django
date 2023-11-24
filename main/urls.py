@@ -16,15 +16,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from aluno  import views
+from aluno.views import IndexView, AlunoEditar, AlunoCriar, AlunoRemover, AlunoListar
+from hospedagem.views import HospedagemListView, HospedagemCreateView, HospedagemUpdateView, HospedagemDeleteView, HospedagemDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.IndexView.as_view(), name='index'),
-    path('aluno/editar/<int:id>/', views.AlunoEditar.as_view(), name='aluno_editar'),
-    path('aluno/criar/', views.AlunoCriar.as_view(), name='aluno_criar'),
-    path('aluno/remover/<int:id>/', views.AlunoRemover.as_view(), name='aluno_remover'),
-    path('aluno/listar/', views.AlunoListar.as_view(), name='aluno_listar'),
+    path('',IndexView.as_view(), name='index'),
+    path('aluno/editar/<int:id>/',AlunoEditar.as_view(), name='aluno_editar'),
+    path('aluno/criar/',AlunoCriar.as_view(), name='aluno_criar'),
+    path('aluno/remover/<int:id>/',AlunoRemover.as_view(), name='aluno_remover'),
+    path('aluno/listar/',AlunoListar.as_view(), name='aluno_listar'),
+    
+    path('hospedagem/listar/',HospedagemListView.as_view(), name='hospedagem_listar'),
+    path('hospedagem/criar/',HospedagemCreateView.as_view(), name='hospedagem_criar'),
+    path('hospedagem/editar/<int:pk>/',HospedagemUpdateView.as_view(), name='hospedagem_editar'),
+    path('hospedagem/remover/<int:pk>/',HospedagemDeleteView.as_view(), name='hospedagem_remover'),
+    path('hospedagem/detalhes/<int:pk>/',HospedagemDetailView.as_view(), name='hospedagem_detalhar'),
 
 ]
 

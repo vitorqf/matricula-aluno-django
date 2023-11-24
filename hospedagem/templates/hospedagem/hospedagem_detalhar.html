@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block center %}
+<h1>Detalhes da hospedagem</h1>
+<div class="d-flex align-items-center">
+  <h5>Data de entrada:</h5>
+  <span class="ml-2">{{ hospedagem.data_entrada }}</span>
+</div>
+
+<div class="d-flex align-items-center">
+  <h5>Data de saida:</h5>
+  <span class="ml-2">{{ hospedagem.data_saida }}</span>
+</div>
+
+<div class="d-flex align-items-center">
+  <h5>Valor:</h5>
+  <span class="ml-2">{{ hospedagem.valor }}</span>
+</div>
+
+<div class="d-flex align-items-center">
+  <h5>Quarto:</h5>
+  <span class="ml-2">{{ hospedagem.quarto.apartamento }}</span>
+</div>
+
+<div class="d-flex align-items-center">
+  <h5>Cliente:</h5>
+  <span class="ml-2">{{ hospedagem.cliente.nome }}</span>
+</div>
+{% endblock %}
